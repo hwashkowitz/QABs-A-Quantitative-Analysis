@@ -43,3 +43,20 @@ mean(last$on_base[!last$qab])   # 0.334 for non-QABs
 prop.test(c(sum(last$on_base[last$qab]), sum(last$on_base[!last$qab])),
           c(sum(last$qab), sum(!last$qab)))
 # p = 0.00017, 95% confidence interval: +2.5 to +8.1 percentage points
+
+# ---- Part 2: Without walks ----
+
+# Remove plate appearances that ended in a walk, intentional walk, or hit by pitch
+walk_events <- c("walk", "intent_walk", "hit_by_pitch")
+no_walks <- last[!last$events %in% walk_events, ]
+nrow(no_walks)   # 6,310 plate appearances
+
+# Compare on-base rates without walks
+mean(no_walks$on_base[no_walks$qab])    # 0.216 for QABs
+mean(no_walks$on_base[!no_walks$qab])   # 0.290 for non-QABs
+
+# Test whether the difference is real
+prop.test(c(sum(no_walks$on_base[no_walks$qab]), sum(no_walks$on_base[!no_walks$qab])),
+          c(sum(no_walks$qab), sum(!no_walks$qab)))
+# p = 0.00000045, 95% confidence interval: -10.2 to -4.7 percentage points
+# Without walks, QABs reach base LESS often: the QAB advantage comes from walks
