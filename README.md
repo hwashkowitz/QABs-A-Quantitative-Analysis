@@ -16,7 +16,13 @@ Finally, I ran a prop.test to see the statistical significance of the findings.
 I ran a lot of the same code as in Part 1, but I eliminated walks, since most QABs under my definition were achieved with a lot of balls.
 
 # Results, part 1
-QAB reached base percentage: 38.7%
-Non-QAB reached base percentage: 33.4%
+QAB reached base: 38.7%
+Non-QAB reached base: 33.4%
 p = 0.00017
 95% confidence interval: 2.5 to +8.1 points
+
+# Results, part 2
+QABs reached base: 21.6%
+Non-QABs reached base: 29.0%
+p-value: 0.00000045, 
+95% confidence interval: −10.2 to −4.7 percentage points
